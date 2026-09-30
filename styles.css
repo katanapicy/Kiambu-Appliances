@@ -49,6 +49,7 @@ button, input, textarea, select { font: inherit; }
 .nav-links > a:not(.nav-cta) { position: relative; }
 .nav-links > a:not(.nav-cta)::after { content: ""; position: absolute; width: 0; left: 0; bottom: -8px; height: 2px; background: var(--gold); transition: width .25s; }
 .nav-links > a:hover::after { width: 100%; }
+.nav-links > a[aria-current="page"]:not(.nav-cta)::after { width: 100%; }
 .nav-cta { padding: 13px 20px; color: var(--navy); background: var(--gold); transition: background .2s, transform .2s; }
 .nav-cta:hover { background: #ff7029; transform: translateY(-2px); }
 .menu-toggle { display: none; background: none; border: 0; padding: 6px; }
@@ -122,6 +123,10 @@ button, input, textarea, select { font: inherit; }
 .image-fridge { background-image: url("https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?auto=format&fit=crop&w=800&q=80"); }
 .image-cooker { background-image: url("https://images.unsplash.com/photo-1586208958839-06c17cacdf08?auto=format&fit=crop&w=800&q=80"); }
 .image-dishwasher { background-image: url("https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80"); }
+.image-microwave { background-image: url("https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?auto=format&fit=crop&w=800&q=80"); }
+.image-dryer { background-image: url("https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?auto=format&fit=crop&w=800&q=80"); }
+.image-dispenser { background-image: url("https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=800&q=80"); }
+.image-hood { background-image: url("https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=800&q=80"); }
 .service-body { position: relative; padding: 55px 25px 29px; }
 .service-icon { position: absolute; top: -30px; left: 24px; width: 62px; height: 62px; display: grid; place-items: center; color: var(--navy); background: var(--gold); }
 .service-icon svg { width: 30px; fill: none; stroke: currentColor; stroke-width: 1.5; }
@@ -130,6 +135,70 @@ button, input, textarea, select { font: inherit; }
 .service-body p { min-height: 92px; margin: 0 0 18px; color: var(--muted); font-size: 12px; }
 .service-body a { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
 .service-body a span { color: var(--gold-dark); margin-left: 6px; }
+.section-action { margin-top: 38px; text-align: center; }
+
+.inner-page .site-header { position: absolute; }
+.page-hero {
+  min-height: 470px;
+  padding: 190px 0 90px;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(8,15,28,.96), rgba(8,15,28,.72)),
+    url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1800&q=82") center / cover;
+}
+.page-hero-content { max-width: 760px; }
+.page-hero h1 { margin: 16px 0 20px; font-family: "Oswald"; font-size: clamp(48px, 6vw, 76px); line-height: 1; text-transform: uppercase; }
+.page-hero h1 em { color: var(--gold); font-style: normal; }
+.page-hero p { max-width: 650px; margin: 0; color: #c9ced7; font-size: 17px; }
+.breadcrumbs { margin-top: 24px; color: #aeb4bf; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+.breadcrumbs a { color: var(--gold); }
+.services-page .service-grid { grid-template-columns: repeat(4, 1fr); }
+.services-page .service-body p { min-height: 112px; }
+.intro-grid, .detail-grid, .contact-page-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.content-image { min-height: 520px; background-position: center; background-size: cover; box-shadow: var(--shadow); }
+.content-image.about-team { background-image: url("assets/about-fridge-cleaning.jpg"); }
+.content-copy h2, .detail-content h2, .coverage-copy h2 { margin: 12px 0 22px; color: var(--navy); font-family: "Oswald"; font-size: clamp(38px, 4vw, 55px); line-height: 1.08; text-transform: uppercase; }
+.content-copy h2 em, .detail-content h2 em, .coverage-copy h2 em { color: var(--gold); font-style: normal; }
+.content-copy p, .detail-content p, .coverage-copy p { color: var(--muted); font-size: 14px; }
+.value-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.value-card { padding: 34px 30px; background: var(--off-white); border-top: 4px solid var(--gold); }
+.value-card strong { display: block; margin-bottom: 10px; color: var(--navy); font-family: "Oswald"; font-size: 21px; text-transform: uppercase; }
+.value-card p { margin: 0; color: var(--muted); font-size: 12px; }
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: steps; }
+.process-card { position: relative; padding: 38px 28px; color: var(--white); background: var(--navy); counter-increment: steps; }
+.process-card::before { content: "0" counter(steps); display: block; margin-bottom: 25px; color: var(--gold); font-family: "Oswald"; font-size: 38px; }
+.process-card h3 { margin: 0 0 10px; font-family: "Oswald"; text-transform: uppercase; }
+.process-card p { margin: 0; color: #aeb4bf; font-size: 12px; }
+.light-section { background: var(--off-white); }
+.coverage-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 75px; align-items: start; }
+.coverage-list { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.coverage-list a { min-height: 88px; padding: 20px; display: flex; align-items: center; justify-content: space-between; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--navy); font-family: "Oswald"; font-size: 18px; text-transform: uppercase; transition: .2s; }
+.coverage-list a:hover { color: var(--white); background: var(--navy); }
+.coverage-list span { color: var(--gold-dark); font: 10px "Manrope"; }
+.contact-cards { display: grid; gap: 16px; }
+.contact-card { padding: 25px 28px; display: flex; gap: 18px; align-items: center; background: var(--off-white); border-left: 4px solid var(--gold); }
+.contact-card small, .contact-card strong { display: block; }
+.contact-card small { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; }
+.contact-card > span:last-child { min-width: 0; }
+.contact-card strong { overflow-wrap: anywhere; color: var(--navy); font-family: "Oswald"; font-size: 22px; }
+.detail-hero { min-height: 530px; }
+.detail-grid { align-items: start; }
+.detail-content h2 { font-size: clamp(34px, 3.5vw, 48px); }
+.detail-content h3 { margin-top: 34px; color: var(--navy); font-family: "Oswald"; font-size: 24px; text-transform: uppercase; }
+.repair-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0; list-style: none; }
+.repair-list li { padding: 14px 16px; color: var(--navy); background: var(--off-white); font-size: 12px; font-weight: 700; }
+.repair-list li::before { content: "\2713"; margin-right: 9px; color: var(--gold-dark); }
+.service-sidebar { padding: 34px; color: var(--white); background: var(--navy); }
+.service-sidebar h3 { margin: 0 0 12px; font-family: "Oswald"; font-size: 26px; text-transform: uppercase; }
+.service-sidebar p { color: #aeb4bf; font-size: 13px; }
+.service-sidebar .button { width: 100%; margin-top: 15px; }
+.detail-note { margin-top: 24px; padding: 22px; border-left: 4px solid var(--gold); background: #fff7f2; color: var(--muted); font-size: 13px; }
+.cta-band { padding: 65px 0; color: var(--white); background: var(--gold); }
+.cta-band .container { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+.cta-band h2 { margin: 0; color: var(--navy); font-family: "Oswald"; font-size: clamp(30px, 4vw, 47px); line-height: 1.1; text-transform: uppercase; }
+.cta-band .button { color: var(--white); background: var(--navy); }
 
 .about { overflow: hidden; background: var(--white); }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
@@ -223,7 +292,11 @@ footer h3 { margin: 8px 0 24px; color: var(--white); font-family: "Oswald"; font
 }
 
 @media (max-width: 800px) {
-  .section { padding: 80px 0; }
+  .section { padding: 80px 0;     .services-page .service-grid { grid-template-columns: 1fr 1fr; }
+    .intro-grid, .detail-grid, .contact-page-grid, .coverage-layout { grid-template-columns: 1fr; gap: 48px; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .content-image { min-height: 430px; }
+  }
   .topbar-label { display: none; }
   .topbar-inner { justify-content: center; }
   .topbar-links a:last-child { display: none; }
@@ -286,6 +359,14 @@ footer h3 { margin: 8px 0 24px; color: var(--white); font-family: "Oswald"; font
   .footer-grid > div:last-child { grid-column: 1 / -1; }
   .footer-bottom { min-height: 85px; flex-direction: column; justify-content: center; gap: 8px; }
   .whatsapp-float { right: 16px; bottom: 16px; }
+  .page-hero { min-height: 410px; padding-top: 170px; }
+  .page-hero h1 { font-size: 46px; }
+  .services-page .service-grid, .value-grid, .process-grid { grid-template-columns: 1fr; }
+  .content-image { min-height: 380px; }
+  .coverage-list { grid-template-columns: 1fr 1fr; }
+  .repair-list { grid-template-columns: 1fr; }
+  .cta-band .container { display: block; }
+  .cta-band .button { margin-top: 25px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
